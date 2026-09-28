@@ -1,0 +1,10 @@
+name: ablation_rank1_covariance
+description: Tier 3, the interaction covariance is capped at rank one
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 3
+  variant: interaction_covariance_capped_at_rank_1
+  linked_equation: eq_pair_model
+model:
+  coupling:
+    interaction_rank: 1

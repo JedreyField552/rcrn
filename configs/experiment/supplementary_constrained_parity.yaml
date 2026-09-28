@@ -1,0 +1,13 @@
+name: supplementary_constrained_parity
+description: Methods, parity of the margin-certified model against its unconstrained twin
+extends: [configs/experiment/main.yaml]
+supplementary:
+  section: constrained_variant_parity
+evaluation:
+  report: [constrained_parity]
+  parity:
+    constraint: margin_certified
+    twin: unconstrained
+    budget: matched_hyperparameters
+    folds: matched_patient_level_site_stratified
+    report: signed_gap_per_utility_metric

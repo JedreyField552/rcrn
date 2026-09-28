@@ -1,0 +1,14 @@
+name: ablation_joint_no_coupling_no_gate
+description: Tier 2, joint removal of the reaction-norm coupling and the gate
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 2
+  variant: without_coupling_and_without_gate
+  components_removed: [reaction_norm_coupling, interaction_variance_gate]
+model:
+  components:
+    reaction_norm_coupling: false
+    interaction_variance_gate: false
+  coupling:
+    kind: plain_concat
+    gate: always_condition

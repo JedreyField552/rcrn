@@ -1,0 +1,42 @@
+# Composite objective of Eq. (4), the gate calibration of Eq. (2) and the certificate
+# radius of Eq. (5). The manuscript fixes the weights on the training folds and states
+# that it never re-adjusts them on the test fold; the numeric values are defaults.
+
+objective:
+  loss_weights:
+    rank: 1.0
+    property: 0.5
+    route_sparsity: 0.01
+    consistency: 0.2
+
+  rank:
+    objective: agreement_weighted_listwise
+    surrogate: logistic
+    temperature: 0.5
+    pair_budget_per_plaque: 256
+
+  property:
+    objective: smooth_l1
+    beta: 0.25
+
+  route_sparsity:
+    objective: group_l1
+    groups: 3
+
+  consistency:
+    objective: square_hinge
+    margin: 1.0
+    scale_free: true
+
+  gate:
+    false_conditioning_tolerance: 0.05
+    calibration: held_out_training_folds
+    covariance_estimator: shrinkage_ledoit_wolf
+    noise_estimator: route_wise_residual_variance
+    prior_strength: 0.1
+
+  certificate:
+    admissible_perturbation: 0.05
+    encoder_lipschitz: 1.0
+    depth: 10
+    deferral_policy: plaque_blind_order

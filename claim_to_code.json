@@ -1,0 +1,234 @@
+{
+  "claims": [
+    {
+      "claim_id": "C1",
+      "code_paths": [
+        "src/rcrn/models/graph_state.py",
+        "src/rcrn/models/route_head.py",
+        "src/rcrn/models/state_space.py"
+      ],
+      "paper_location": "Methods, 'The regime-route molecular encoder'; Eq. (1); Algorithm 1 step 1",
+      "statement": "The molecular branch emits a three-route transport-susceptibility vector normalised apart from its magnitude, with a plaque-blind direct effect",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C2",
+      "code_paths": [
+        "src/rcrn/models/plaque_encoder.py",
+        "src/rcrn/models/resistance_head.py",
+        "src/rcrn/models/composition_head.py"
+      ],
+      "paper_location": "Methods, 'The plaque composition encoder'",
+      "statement": "The imaging branch emits positive route resistances plus a composition index that varies with necrotic core, cap thickness and bleeding",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C3",
+      "code_paths": [
+        "src/rcrn/models/coupling.py",
+        "src/rcrn/models/interaction.py",
+        "src/rcrn/models/gate.py",
+        "src/rcrn/models/scorer.py"
+      ],
+      "paper_location": "Methods, 'Reaction-norm coupling and the decline-to-condition gate'; Eq. (1)-(2)",
+      "statement": "The pair score is the reaction norm of the two vectors under an interaction-variance gate that declines to condition when the plaque axis carries no signal",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C4",
+      "code_paths": [
+        "src/rcrn/losses/rank.py"
+      ],
+      "paper_location": "Eq. (3); Methods, 'Agreement-weighted listwise rank objective'",
+      "statement": "The rank objective weights each plaque's pairs by its stratum agreement coefficient",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C5",
+      "code_paths": [
+        "src/rcrn/losses/objective.py",
+        "src/rcrn/losses/property_prior.py",
+        "src/rcrn/losses/route_sparsity.py",
+        "src/rcrn/losses/consistency.py"
+      ],
+      "paper_location": "Eq. (4)",
+      "statement": "The composite objective is the weighted sum of the rank, property, sparsity and consistency terms",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C6",
+      "code_paths": [
+        "src/rcrn/metrics/certificate.py",
+        "src/rcrn/cli/certify.py"
+      ],
+      "paper_location": "Eq. (5); Algorithm 1",
+      "statement": "The certified top-k set is returned only when the margin clears twice the Lipschitz radius, otherwise the affected entries are deferred",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C7",
+      "code_paths": [
+        "src/rcrn/training/trainer.py"
+      ],
+      "paper_location": "Algorithm 2",
+      "statement": "Training is two-stage: auxiliary molecular supervision first, then joint fitting over minibatches",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C8",
+      "code_paths": [
+        "src/rcrn/data/splits.py",
+        "src/rcrn/data/harmonise.py"
+      ],
+      "paper_location": "Methods, 'Cohort construction and auxiliary data'; Table 3",
+      "statement": "Splits are patient-level and site-stratified, one site and region is a held-out external fold, and normalisation statistics come from the training partition only",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C9",
+      "code_paths": [
+        "src/rcrn/evaluation/multiplicity.py",
+        "src/rcrn/evaluation/bootstrap.py"
+      ],
+      "paper_location": "Results, Section 2.1 (twelve planned tests under Holm-Bonferroni); Methods, 'Evaluation protocol'",
+      "statement": "The confirmatory family is Holm-adjusted over the pre-specified comparisons and the exploratory set is controlled at a false discovery rate",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C10",
+      "code_paths": [
+        "src/rcrn/metrics/ranking.py",
+        "src/rcrn/evaluation/pipeline.py"
+      ],
+      "paper_location": "Table 1 (rank agreement and NDCG@10)",
+      "statement": "Rank agreement and NDCG at the declared depth are reported per stratum on a shared held-out fold",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C11",
+      "code_paths": [
+        "src/rcrn/evaluation/ablation.py",
+        "configs/experiment/ablation_*.yaml"
+      ],
+      "paper_location": "Table 2 and caption",
+      "statement": "Component necessity is reported per tier with the interaction ratio of each joint removal against its single removals",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C12",
+      "code_paths": [
+        "src/rcrn/metrics/transport.py",
+        "src/rcrn/evaluation/external.py"
+      ],
+      "paper_location": "Table 3 and caption",
+      "statement": "Transport is reported per out-of-distribution condition with the paired within-record difference alongside the marginal column difference",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C13",
+      "code_paths": [
+        "src/rcrn/metrics/clinical.py",
+        "src/rcrn/metrics/calibration.py"
+      ],
+      "paper_location": "Table 4; Figure 2",
+      "statement": "Clinical increment, net benefit at a 20% threshold, calibration slope and the share crossing the published reference level are reported per arm, site and comparator",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C14",
+      "code_paths": [
+        "src/rcrn/evaluation/assay.py",
+        "src/rcrn/data/auxiliary.py",
+        "src/rcrn/data/descriptors.py"
+      ],
+      "paper_location": "Results, Section 2.4; Discussion",
+      "statement": "The molecular branch is compared on the assay endpoint as well as the penetration endpoint, and the direction of the reversal is reported",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C15",
+      "code_paths": [
+        "src/rcrn/metrics/agreement.py",
+        "src/rcrn/evaluation/reader.py"
+      ],
+      "paper_location": "Results, Section 2.6",
+      "statement": "Reader agreement is compared between the unassisted and the assisted reading of the same records",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C16",
+      "code_paths": [
+        "src/rcrn/evaluation/invariants.py",
+        "src/rcrn/data/cohort.py"
+      ],
+      "paper_location": "Methods, 'Cohort construction' (independent label pipeline, prohibited site features)",
+      "statement": "The composition index is image-only, the label pipeline is independent of the feature pipeline, and site-proxy features are excluded",
+      "verification": "PASS"
+    },
+    {
+      "claim_id": "C17",
+      "code_paths": [
+        "configs/data/molecules.yaml",
+        "NOTICE",
+        "dataset_urls.txt"
+      ],
+      "paper_location": "Data availability, Layer (ii)",
+      "statement": "The public molecular resources carry their versions, licences and access links",
+      "verification": "PASS"
+    }
+  ],
+  "deviations": [
+    {
+      "departure": "optimiser, learning rate, weight decay, schedule, warmup fraction, epoch count, batch size, gradient clipping, EMA decay and precision",
+      "location": "Methods, 'Training and inference'",
+      "reason": "the manuscript prints none of these; they are engineering defaults exposed in configs/train and reachable from the command line"
+    },
+    {
+      "departure": "contrast channel count, volume grid, stem width and stage schedule",
+      "location": "Methods, 'The plaque composition encoder'",
+      "reason": "the manuscript names multi-contrast three-dimensional imaging and a T1-weighted channel without printing a protocol; the channel order is fixed so a missing channel is a zero block rather than a shifted tensor"
+    },
+    {
+      "departure": "atom and bond feature blocks, element valence rules, hydrogen-count estimate and hybridisation assignment",
+      "location": "Methods, 'The regime-route molecular encoder'",
+      "reason": "the manuscript fixes the branch's role, not its featurisation; the organic-subset conventions are documented in the module"
+    },
+    {
+      "departure": "the coupling capacity d_cap, the rank cap, the softplus alternative for the positive resistance link, the four loss weights and the rank temperature",
+      "location": "Methods, 'Reaction-norm coupling' and Eq. (4)",
+      "reason": "the manuscript states the low-rank bilinear form, the three routes and that the weights are fixed on the training folds, without printing the values"
+    },
+    {
+      "departure": "the admissible perturbation radius and the encoder Lipschitz constant",
+      "location": "Methods, 'Certified top-k prioritisation', Eq. (5)",
+      "reason": "the manuscript defines the radius as a bound on admissible input variation without printing it; both are configuration entries and both are reported by cli.certify"
+    },
+    {
+      "departure": "the per-record noise term is scaled by the ratio of the reference plaque volume to the recorded volume",
+      "location": "Methods, 'Evaluation protocol and statistical analysis'",
+      "reason": "the manuscript states that the resistance vector is measured from a noisier or smaller area and that the plaque encoder's front end carries it; the scaling is the release's implementation of that statement"
+    },
+    {
+      "departure": "the release ships a schema-compatible cohort fixture instead of the cohort",
+      "location": "Methods, 'Cohort construction and auxiliary data', Layer (i)",
+      "reason": "the multi-centre cohort is private and obtainable only from the corresponding author under a data-use statement; every cohort-level value in Tables 1-4 is therefore NOT_RUN and no cohort value is reproduced from the fixture"
+    },
+    {
+      "departure": "the public assay releases are read from caller-supplied tables rather than downloaded",
+      "location": "Data availability, Layer (ii)",
+      "reason": "the release performs no network access; dataset_urls.txt records the verified access links and the licence of each resource"
+    },
+    {
+      "departure": "removing the molecular branch leaves a candidate-independent score, so the fixture-scale candidate ordering is degenerate and is reported as NOT_RUN rather than as a rank agreement",
+      "location": "Table 2, Tier 1 row 'without molecular branch'",
+      "reason": "a plaque-only score cannot order candidates within a plaque; the manuscript's value for that row is a single-modality comparator and is not a candidate-level rank agreement"
+    },
+    {
+      "departure": "the reader arm is exercised on fixture readings rather than on recorded reader sessions",
+      "location": "Methods, 'Evaluation protocol', human-factors studies",
+      "reason": "no reader session data accompanies the manuscript; the reader statistics are computed by the release's own estimators and are labelled fixture-scale in every report"
+    }
+  ],
+  "overall": "PARTIALLY_VERIFIED",
+  "scope": "manuscript claim to code mapping with the deviation register"
+}

@@ -1,0 +1,10 @@
+name: ablation_bilinear_coupling
+description: Tier 3, the reaction-norm coupling is replaced by a bilinear concatenation
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 3
+  variant: coupling_replaced_by_bilinear_concatenation
+  linked_equation: eq_reaction_norm
+model:
+  coupling:
+    kind: bilinear_concat

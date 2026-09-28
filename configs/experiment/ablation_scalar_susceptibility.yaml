@@ -1,0 +1,12 @@
+name: ablation_scalar_susceptibility
+description: Tier 1, three-route head replaced by a single scalar susceptibility
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 1
+  variant: without_regime_route_head
+  linked_equation: eq_objective
+model:
+  components:
+    regime_route_head: false
+  heads:
+    route_count: 1

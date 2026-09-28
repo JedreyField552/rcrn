@@ -1,0 +1,15 @@
+name: supplementary_candidate_dispersion
+description: Outlook, conditioning gain against candidate-list dispersion along the transport direction
+extends: [configs/experiment/main.yaml]
+supplementary:
+  section: candidate_dispersion
+evaluation:
+  report: [candidate_dispersion]
+  dispersion:
+    base_list_size: 32
+    extended_list_size: 48
+    homogenised_list: true
+    subsets:
+      anti_interleukin_1: {molecules: 15}
+      nlrp3_axis: {molecules: 12}
+    report_gain_against_dispersion: true

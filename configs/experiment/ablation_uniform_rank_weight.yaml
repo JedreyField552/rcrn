@@ -1,0 +1,12 @@
+name: ablation_uniform_rank_weight
+description: Tier 1, agreement weighting replaced by uniform pair weights
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 1
+  variant: without_agreement_weighted_rank
+  linked_equation: eq_objective
+model:
+  components:
+    agreement_weighted_rank: false
+  ranking:
+    weighting: linear

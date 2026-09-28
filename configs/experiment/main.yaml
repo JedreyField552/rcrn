@@ -1,0 +1,74 @@
+# Primary result configuration: the plaque-conditioned ordering on the pre-specified
+# primary stratum, with the constrained variant evaluated for parity rather than swept.
+
+name: main
+description: full regime-coupled reaction-norm fusion on the pre-specified primary stratum
+extends:
+  - configs/model/rcrn.yaml
+  - configs/data/cohorts.yaml
+  - configs/data/molecules.yaml
+  - configs/data/fixture.yaml
+  - configs/train/optimization.yaml
+  - configs/train/objective.yaml
+
+data:
+  source: fixture
+  split:
+    unit: patient
+    stratify_by: site
+    external_fold: {site: C, region: II}
+    val_fraction: 0.2
+
+design:
+  primary_stratum:
+    composition: rads_3_4
+    phenotype: iph_positive
+  reference_stratum:
+    composition: rads_1_2
+  candidate_list_size: 32
+  seed_count: 24
+  bootstrap_resamples: 2000
+  bootstrap_unit: plaque_record
+  multiplicity:
+    family_size: 12
+    method: holm
+    exploratory_fdr: 0.05
+  rank_floor: 0.05
+  top_k_depth: 10
+  arms: [prospective, retrospective]
+
+model:
+  components:
+    reaction_norm_coupling: true
+    regime_route_head: true
+    plaque_composition_head: true
+    interaction_variance_gate: true
+    agreement_weighted_rank: true
+    certified_topk_head: true
+    plaque_imaging_branch: true
+    molecular_branch: true
+  coupling:
+    kind: reaction_norm
+    interaction_rank: 3
+    normalise_routes: true
+    gate: decline_to_condition
+  heads:
+    route_count: 3
+    composition_kind: composition_index
+  ranking:
+    weighting: agreement_kappa
+
+evaluation:
+  report:
+    - ranking_table
+    - component_necessity
+    - condition_dependence
+    - transport
+    - clinical_arms
+    - reader_agreement
+    - assay_endpoint
+  strata:
+    - all_plaques
+    - rads_1_2
+    - rads_3_4_iph
+  parity_variant: unconstrained_twin

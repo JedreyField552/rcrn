@@ -1,0 +1,69 @@
+# Unit-test smoke configuration only. The reduced sizes exist so the forward, loss,
+# backward, parameter-update and checkpoint path can be exercised on CPU in seconds.
+# Do not use it for reporting.
+
+name: smoke
+description: two-step CPU execution check for the differentiable pipeline
+extends:
+  - configs/model/rcrn.yaml
+  - configs/data/cohorts.yaml
+  - configs/data/molecules.yaml
+  - configs/data/fixture.yaml
+  - configs/train/optimization.yaml
+  - configs/train/objective.yaml
+
+data:
+  source: fixture
+  records: 24
+  molecule_count: 6
+  volume_shape: [4, 2, 16, 16]
+  split:
+    unit: patient
+    stratify_by: site
+    external_fold: {site: C, region: II}
+    val_fraction: 0.25
+
+model:
+  molecular:
+    hidden_dim: 32
+    state_dim: 16
+    num_layers: 2
+    fragment_dim: 16
+  plaque:
+    in_channels: 4
+    stem_width: 8
+    depths: [1, 1, 1, 1]
+    widths: [8, 16, 32, 64]
+    patch_size: [1, 2, 2]
+    register_tokens: 2
+  heads:
+    d_cap: 16
+
+train:
+  epochs: 2
+  pretrain_epochs: 1
+  batch_size: 4
+  seed_count: 2
+  precision: fp32
+  ema_decay: 0.9
+
+design:
+  candidate_list_size: 6
+  top_k_depth: 3
+  bootstrap_resamples: 40
+  primary_stratum:
+    composition: rads_3_4
+    phenotype: iph_positive
+  reference_stratum:
+    composition: rads_1_2
+
+objective:
+  rank:
+    pair_budget_per_plaque: 32
+  certificate:
+    depth: 3
+
+evaluation:
+  report: [ranking_table]
+  strata: [all_plaques, rads_1_2, rads_3_4_iph]
+  parity_variant: unconstrained_twin

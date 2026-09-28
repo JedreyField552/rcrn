@@ -1,0 +1,66 @@
+# Layer (ii): public molecular resources. Access terms are recorded so a reader can
+# separate what is redistributable from what is not. This repository vendors none of them.
+
+data:
+  resources:
+    tdc_admet:
+      task: Caco2_Wang
+      client: pytdc
+      client_version: 1.1.15
+      licence: MIT
+      url: https://tdcommons.ai/benchmark/admet_group/overview/
+      role: auxiliary_permeability_supervision
+    ochem_caco2:
+      release: curated
+      compounds_before_filter: 9402
+      compounds_after_filter: 5481
+      split: cluster_stratified
+      url: https://ochem.eu/
+      role: assay_out_of_distribution
+    moleculenet:
+      datasets_total: 17
+      datasets_used: 11
+      licence: MIT
+      url: https://doi.org/10.1039/c7sc02664a
+      role: fusion_depth_reference
+    open_graph_benchmark:
+      tasks: [ogbg-molhiv, ogbg-molpcba]
+      client_version: 1.3.6
+      url: https://ogb.stanford.edu/docs/graphprop/
+      role: cross_benchmark_check
+    chembl:
+      compounds: 2921148
+      activities: 24527044
+      licence: CC BY-SA 3.0
+      url: https://www.ebi.ac.uk/chembl/
+      role: compound_context
+    pubchem:
+      url: https://pubchem.ncbi.nlm.nih.gov/
+      role: structure_context
+    bindingdb:
+      url: https://www.bindingdb.org/
+      role: binding_context
+    admet_ai:
+      doi: 10.1093/bioinformatics/btae416
+      role: property_comparator
+    virtual_screening_controls:
+      lit_pcba_targets: 15
+      dude_targets: 102
+      role: negative_screening_control
+    improve:
+      url: https://github.com/JDACS4C-IMPROVE/
+      role: split_construction_only
+    carotid_vessel_wall_challenge:
+      training_record: 6481870
+      testing_record: 6843257
+      licence: CC BY 4.0
+      role: encoder_pretraining
+
+  auxiliary_targets:
+    permeability_class:
+      dataset: tdc_admet
+      task: Caco2_Wang
+      label: measured_permeability
+    route_descriptor_prior:
+      descriptor_families: [fingerprint, physicochemical, topological]
+      regularisation: route_coordinate_shrinkage

@@ -1,0 +1,18 @@
+name: ablation_default_hyperparameters
+description: Tier 3 equal-budget variant, default hyperparameters only and no tuning
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 3
+  variant: equal_budget_default_hyperparameters
+  linked_equation: eq_objective
+train:
+  lr: 0.001
+  weight_decay: 0.0
+  warmup_fraction: 0.0
+  epochs: 20
+objective:
+  loss_weights:
+    rank: 1.0
+    property: 1.0
+    route_sparsity: 0.0
+    consistency: 1.0

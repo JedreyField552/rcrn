@@ -1,0 +1,10 @@
+name: ablation_molecular_only
+description: Tier 1, the plaque-imaging branch is removed so the score cannot be conditioned
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 1
+  variant: without_plaque_imaging_branch
+  linked_equation: eq_reaction_norm
+model:
+  components:
+    plaque_imaging_branch: false

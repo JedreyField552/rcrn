@@ -1,0 +1,10 @@
+name: ablation_two_route
+description: Tier 3, the three-route head is replaced by a two-route head
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 3
+  variant: three_route_head_replaced_by_two_route_head
+  linked_equation: eq_objective
+model:
+  heads:
+    route_count: 2

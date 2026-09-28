@@ -1,0 +1,64 @@
+Third-party notices
+
+This repository holds modelling, retrieval, ranking and verification code only.
+No clinical record, no plaque image volume and no subject-level outcome table is
+redistributed here. The resources the code reads are named in dataset_urls.txt
+with their access terms; the attributions below keep the origin of every
+external input visible.
+
+1. Private multi-centre carotid plaque cohort (Layer i); Sites A, B and C across
+   Regions I and II. Not redistributed and not obtainable from a public
+   repository. Held under a data-usage statement issued by the corresponding
+   author, and reported in the manuscript as irreversibly anonymised before
+   analysis. The release ships a schema-compatible cohort fixture so that every
+   mechanism stays executable without it; see README section 3.
+
+2. Therapeutics Data Commons (TDC), Caco2_Wang task (N = 906 compounds).
+   Distributed through the PyTDC client, MIT licence, https://tdcommons.ai/ .
+   Role here: auxiliary permeability-class supervision for the molecular branch
+   and the assay-endpoint comparison. TDC also redistributes the underlying
+   public measurements, whose original sources retain their own terms.
+
+3. OCHEM curated Caco-2 release (9,402 measurements filtered to 5,481 compounds,
+   cluster-stratified 4,386/1,095 split), https://ochem.eu/ . Role here: the
+   stress out-of-distribution assay endpoint.
+
+4. MoleculeNet, 17 datasets (11 used), MIT licence,
+   https://doi.org/10.1039/c7sc02664a . Role here: fusion-depth comparator
+   reference for the multimodal baselines.
+
+5. Open Graph Benchmark, ogbg-molhiv and ogbg-molpcba, https://ogb.stanford.edu/
+   . Role here: cross-benchmark molecular check on the official splits.
+
+6. ChEMBL (release page updated 2026-05-01; 2,921,148 compounds, 24,527,044
+   activities), https://www.ebi.ac.uk/chembl/ , CC BY-SA 3.0. Role here:
+   compound-context retrieval service.
+
+7. PubChem, https://pubchem.ncbi.nlm.nih.gov/ . Role here: structure and
+   property context retrieval.
+
+8. BindingDB, https://www.bindingdb.org/ . Role here: binding-measure context
+   retrieval.
+
+9. ADMET-AI, Swanson, K. et al. Bioinformatics 40, btae416 (2024),
+   https://doi.org/10.1093/bioinformatics/btae416 , MIT licence. Role here:
+   molecular-property comparator that itself consumes the TDC ADMET group; it is
+   a comparator and not an independent data source.
+
+10. LIT-PCBA (15 targets), https://drugdesign.unistra.fr/LIT-PCBA/ , and DUD-E
+    (102 targets), http://dude.docking.org/ . Tran-Nguyen, V.-K. et al. J. Chem.
+    Inf. Model. 60, 4263-4273 (2020). Role here: realistic and idealised virtual
+    screening controls.
+
+11. IMPROVE drug-response benchmark, https://github.com/JDACS4C-IMPROVE/ . Role
+    here: split construction only; no feature is ingested from it.
+
+12. Carotid Vessel Wall Segmentation and Atherosclerosis Diagnosis Challenge
+    (MICCAI 2022), Zenodo records 6481870 (training) and 6843257 (testing),
+    CC BY 4.0. Role here: encoder pretraining only. Neither record carries the
+    cohort outcomes analysed in the manuscript.
+
+13. Software dependencies are consumed as installed packages and are not
+    vendored: PyTorch (BSD-3-Clause), NumPy (BSD-3-Clause), SciPy
+    (BSD-3-Clause), scikit-learn (BSD-3-Clause) and PyYAML (MIT). Their licences
+    apply to those packages, not to this repository.

@@ -1,0 +1,12 @@
+name: ablation_no_gate
+description: Tier 1, the decline-to-condition gate is removed and every plaque is conditioned
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 1
+  variant: without_interaction_variance_gate
+  linked_equation: eq_gate
+model:
+  components:
+    interaction_variance_gate: false
+  coupling:
+    gate: always_condition

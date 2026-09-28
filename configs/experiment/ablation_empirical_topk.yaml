@@ -1,0 +1,12 @@
+name: ablation_empirical_topk
+description: Tier 1, the certified top-k head is removed in favour of an empirical top-k
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 1
+  variant: without_certified_topk_head
+  linked_equation: eq_gate
+model:
+  components:
+    certified_topk_head: false
+  ranking:
+    topk_mode: empirical

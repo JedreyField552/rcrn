@@ -1,0 +1,55 @@
+# Architecture of the regime-coupled reaction-norm model.
+# Quantities the fixed architecture leaves open are engineering defaults and are
+# marked as such; the three-route count and the top-k depth come from the study design.
+
+model:
+  molecular:
+    atom_feature_dim: 45
+    bond_feature_dim: 12
+    hidden_dim: 256
+    state_dim: 64
+    num_layers: 6
+    fragment_dim: 64
+    dropout: 0.1
+    pool: fragment_attention
+
+  plaque:
+    in_channels: 4
+    stem_width: 48
+    depths: [2, 2, 6, 2]
+    widths: [48, 96, 192, 384]
+    patch_size: [2, 4, 4]
+    register_tokens: 4
+    dropout: 0.1
+
+  heads:
+    route_count: 3
+    d_cap: 128
+    top_k_depth: 10
+    composition_kind: composition_index
+    resistance_link: softplus
+
+  coupling:
+    kind: reaction_norm
+    normalise_routes: true
+    interaction_rank: 3
+    gate: decline_to_condition
+    gate_statistic: interaction_variance_ratio
+
+  ranking:
+    weighting: agreement_kappa
+    temperature: 0.5
+    topk_mode: certified
+
+  prior:
+    enabled: true
+
+  components:
+    reaction_norm_coupling: true
+    regime_route_head: true
+    plaque_composition_head: true
+    interaction_variance_gate: true
+    agreement_weighted_rank: true
+    certified_topk_head: true
+    plaque_imaging_branch: true
+    molecular_branch: true

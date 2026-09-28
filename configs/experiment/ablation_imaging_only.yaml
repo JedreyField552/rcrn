@@ -1,0 +1,10 @@
+name: ablation_imaging_only
+description: Tier 1, the molecular branch is removed so only shared plaque structure remains
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 1
+  variant: without_molecular_branch
+  linked_equation: eq_reaction_norm
+model:
+  components:
+    molecular_branch: false

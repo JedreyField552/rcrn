@@ -1,0 +1,10 @@
+name: ablation_full_rank_covariance
+description: Tier 3, the interaction covariance is left unconstrained in the coupling width
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 3
+  variant: interaction_covariance_unconstrained
+  linked_equation: eq_pair_model
+model:
+  coupling:
+    interaction_rank: 0

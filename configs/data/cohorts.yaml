@@ -1,0 +1,37 @@
+# Cohort layer (i): the private multi-centre carotid plaque study.
+# Nothing here is distributed; the counts the manuscript reports are deliberately
+# absent from configuration and live only in the manuscript-arithmetic checks.
+
+data:
+  cohort:
+    source: private
+    sites: [A, B, C]
+    regions:
+      I: [A, B]
+      II: [C]
+    external_fold:
+      site: C
+      region: II
+    arms: [prospective, retrospective]
+    strata:
+      composition: [rads_1_2, rads_3_4]
+      phenotype: [iph_positive, thin_fibrous_cap, symptomatic, asymptomatic]
+      demographics: [sex, age_band, smoking, diabetes]
+    prohibited_features: [site_id, region_id, scanner_vendor_raw, accrual_timestamp]
+    normalisation: train_partition_only
+    leakage_guard: independent_label_pipeline
+
+  transport_conditions:
+    held_out_site: held_out_site
+    held_out_region: held_out_region
+    later_accrual_window: later_accrual_window
+    scanner_vendor_shift: scanner_vendor_shift
+    contrast_without_t1w: contrast_without_t1w
+    slice_thickness_at_least_3mm: slice_thickness_at_least_3mm
+    motion_degraded: motion_degraded
+    small_plaque_below_40mm3: small_plaque_below_40mm3
+
+  acquisition:
+    t1_weighted_channel: t1w
+    small_plaque_volume_mm3: 40.0
+    slice_thickness_mm: 3.0

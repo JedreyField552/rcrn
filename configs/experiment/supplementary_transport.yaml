@@ -1,0 +1,19 @@
+name: supplementary_transport
+description: Table 3, degradation of the hard-stratum ordering on each out-of-distribution fold
+extends: [configs/experiment/main.yaml]
+supplementary:
+  table: transport
+  note: no fold entered a fitting step and no condition was chosen after seeing its result
+evaluation:
+  report: [transport]
+  transport:
+    folds:
+      - held_out_site
+      - held_out_region
+      - later_accrual_window
+      - scanner_vendor_shift
+      - contrast_without_t1w
+      - slice_thickness_at_least_3mm
+      - motion_degraded
+      - small_plaque_below_40mm3
+    paired_difference_within_record: true

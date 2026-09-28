@@ -1,0 +1,13 @@
+name: ablation_joint_no_route_no_composition
+description: Tier 2, joint removal of the regime-route head and the composition head
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 2
+  variant: without_route_head_and_without_composition_head
+  components_removed: [regime_route_head, plaque_composition_head]
+model:
+  components:
+    regime_route_head: false
+    plaque_composition_head: false
+  heads:
+    route_count: 1

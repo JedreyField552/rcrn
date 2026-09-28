@@ -1,0 +1,14 @@
+name: supplementary_clinical_arms
+description: Table 4, the two clinical arms, the three sites, the two regions and both comparators
+extends: [configs/experiment/main.yaml]
+supplementary:
+  table: clinical_arms
+evaluation:
+  report: [clinical_arms]
+  clinical:
+    arms: [prospective, retrospective, pooled]
+    sites: [A, B, C]
+    regions: [I, II]
+    comparators: [plaque_rads_nomogram, clinical_logistic]
+    metrics: [rank_agreement, incremental_auc, net_benefit_20, calibration_slope, mcid_crossing]
+    decision_threshold: 0.2

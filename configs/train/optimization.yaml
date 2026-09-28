@@ -1,0 +1,24 @@
+# Optimiser and schedule. The manuscript pins the seed count, the candidate-list size
+# and the bootstrap count; it does not print an optimiser budget, so the values below
+# are engineering defaults and every one of them is reachable from the CLI.
+
+train:
+  optimizer: adamw
+  lr: 0.0003
+  weight_decay: 0.01
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  grad_clip: 1.0
+  scheduler: cosine
+  warmup_fraction: 0.05
+  min_lr_factor: 0.05
+  batch_size: 8
+  grad_accum: 1
+  epochs: 40
+  pretrain_epochs: 8
+  precision: bf16
+  ema_decay: 0.999
+  world_size: 1
+  seed_count: 24
+  seed_base: 20260922
+  deterministic: true

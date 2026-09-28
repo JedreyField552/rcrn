@@ -1,0 +1,27 @@
+# Access links for every external resource this release reads.
+# Only links that were fetched and whose content matched the named resource are listed.
+# Format: <url>  # <resource> | <version or record> | <licence as stated by the source>
+#
+https://tdcommons.ai  # Therapeutics Data Commons | PyTDC 1.1.15 client | MIT
+https://github.com/mims-harvard/TDC  # TDC source repository | PyTDC 1.1.15 | MIT
+https://ochem.eu/home/show.do  # OCHEM platform, curated Caco-2 release | 5,481 compounds after filtering | see source terms
+https://ogb.stanford.edu/docs/graphprop/  # Open Graph Benchmark, ogbg-molhiv and ogbg-molpcba | ogb 1.3.6 | see source terms
+https://www.ebi.ac.uk/chembl/  # ChEMBL | release page updated 2026-05-01 | CC BY-SA 3.0
+https://pubchem.ncbi.nlm.nih.gov/  # PubChem | live release | see source terms
+https://www.bindingdb.org/  # BindingDB | live release | see source terms
+http://dude.docking.org/  # DUD-E decoy database | 102 targets | see source terms
+https://github.com/JDACS4C-IMPROVE/  # IMPROVE drug-response benchmark, split construction only | see source terms
+https://zenodo.org/record/6481870  # Carotid Vessel Wall Segmentation and Atherosclerosis Diagnosis Challenge, training set, MICCAI 2022 | CC BY 4.0
+https://zenodo.org/record/6843257  # Carotid Vessel Wall Segmentation and Atherosclerosis Diagnosis Challenge, testing set, MICCAI 2022 | CC BY 4.0
+#
+# Resources named by the manuscript whose official link could not be verified from the
+# validation environment, and which are therefore not listed as access links above:
+#   MoleculeNet descriptor paper, doi 10.1039/c7sc02664a    -> publisher returned HTTP 403
+#   ADMET-AI, doi 10.1093/bioinformatics/btae416           -> publisher returned HTTP 403
+#   LIT-PCBA, https://drugdesign.unistra.fr/LIT-PCBA/      -> host returned HTTP 502 and no connection
+#   MoleculeNet and LIT-PCBA remain cited as comparators and controls; the release reads
+#   them from caller-supplied tables and performs no network access.
+#
+# The private multi-centre carotid plaque cohort (Layer i) has no public link. It is held
+# under a data-use statement issued by the corresponding author and is not redistributed.
+# No publicly available dataset is used for the primary clinical outcome.

@@ -1,0 +1,13 @@
+name: supplementary_condition_dependence
+description: Figure 1, conditioning gain by composition quartile and by interaction-signal fraction
+extends: [configs/experiment/main.yaml]
+supplementary:
+  figure: condition_dependence
+evaluation:
+  report: [condition_dependence]
+  condition_dependence:
+    stratification: composition_index_quartile
+    binning: interaction_signal_fraction
+    bin_count: 8
+    report_route_share: true
+    report_blind_conditioned_agreement: true

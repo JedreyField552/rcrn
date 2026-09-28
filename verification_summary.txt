@@ -1,0 +1,17 @@
+verification summary
+
+overall status      : PARTIALLY_VERIFIED
+code status         : PARTIALLY_VERIFIED
+checks              : 82
+  PASS    : 72
+  FAIL    : 5
+  NOT_RUN : 4
+  BLOCKED : 1
+manuscript failures : 5
+  - arm_weighted_pool_calibration_slope: recomputed 1.0332 against reported 1.0400 (tolerance 0.005)
+  - region_weighted_pool_increment: recomputed 0.0690 against reported 0.0710 (tolerance 0.001)
+  - region_weighted_pool_mcid_crossing: recomputed 73.3206 against reported 73.9000 (tolerance 0.05)
+  - region_weighted_pool_calibration_slope: recomputed 1.0537 against reported 1.0400 (tolerance 0.005)
+  - manuscript_family_summary: 35 of 39 arithmetic relations hold; a failure here is a discrepancy inside the article's own tables, not a code defect
+
+a discrepancy inside the manuscript's own tables is not a defect in the release; the code verdict is reported separately from the manuscript family

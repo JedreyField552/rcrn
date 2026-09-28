@@ -1,0 +1,13 @@
+name: supplementary_gate_calibration
+description: Equation (2) gate calibration, the false-conditioning rate and the calibration slope
+extends: [configs/experiment/main.yaml]
+supplementary:
+  section: gate_calibration
+evaluation:
+  report: [gate_calibration]
+  gate:
+    report_conditioning_share: true
+    report_deferral_share: true
+    report_calibration_slope: true
+    slope_reference: ungated_twin
+    stratum: rads_3_4_iph

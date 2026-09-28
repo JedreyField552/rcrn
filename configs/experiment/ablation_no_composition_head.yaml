@@ -1,0 +1,10 @@
+name: ablation_no_composition_head
+description: Tier 1, the plaque composition index head is removed
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 1
+  variant: without_plaque_composition_head
+  linked_equation: eq_pair_model
+model:
+  components:
+    plaque_composition_head: false

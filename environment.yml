@@ -1,0 +1,18 @@
+name: rcrn
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy=2.1.3
+  - scipy=1.14.1
+  - pyyaml=6.0.2
+  - scikit-learn=1.5.2
+  - pip
+  - pip:
+      - torch==2.5.1
+      - pytest==8.3.3
+      - ruff==0.7.1
+      - black==24.10.0
+      - isort==5.13.2
+      - mypy==1.13.0

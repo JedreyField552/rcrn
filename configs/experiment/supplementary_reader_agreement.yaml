@@ -1,0 +1,13 @@
+name: supplementary_reader_agreement
+description: Section 2.6, six-reader agreement with and without the prioritisation ordering
+extends: [configs/experiment/main.yaml]
+supplementary:
+  section: reader_agreement
+evaluation:
+  report: [reader_agreement]
+  reader_study:
+    reader_levels: [expert, intermediate, novice]
+    records_per_reader_pair: 250
+    readings: [unassisted, assisted]
+    washout: true
+    statistic: weighted_kappa

@@ -1,0 +1,12 @@
+name: ablation_no_reaction_norm_coupling
+description: Tier 1, coupling replaced by plain concatenation of the two branches
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 1
+  variant: without_reaction_norm_coupling
+  linked_equation: eq_reaction_norm
+model:
+  components:
+    reaction_norm_coupling: false
+  coupling:
+    kind: plain_concat

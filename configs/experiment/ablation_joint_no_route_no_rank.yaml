@@ -1,0 +1,15 @@
+name: ablation_joint_no_route_no_rank
+description: Tier 2, joint removal of the regime-route head and the agreement-weighted rank
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 2
+  variant: without_route_head_and_without_rank_objective
+  components_removed: [regime_route_head, agreement_weighted_rank]
+model:
+  components:
+    regime_route_head: false
+    agreement_weighted_rank: false
+  heads:
+    route_count: 1
+  ranking:
+    weighting: linear

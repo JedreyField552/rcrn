@@ -1,0 +1,13 @@
+name: ablation_joint_no_coupling_no_composition
+description: Tier 2, joint removal of the reaction-norm coupling and the composition head
+extends: [configs/experiment/main.yaml]
+ablation:
+  tier: 2
+  variant: without_coupling_and_without_composition_head
+  components_removed: [reaction_norm_coupling, plaque_composition_head]
+model:
+  components:
+    reaction_norm_coupling: false
+    plaque_composition_head: false
+  coupling:
+    kind: plain_concat

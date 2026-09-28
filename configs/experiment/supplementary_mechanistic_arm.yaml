@@ -1,0 +1,14 @@
+name: supplementary_mechanistic_arm
+description: Section 2.8, the in-vitro rank-direction arm on the candidate subset
+extends: [configs/experiment/main.yaml]
+supplementary:
+  section: mechanistic_arm
+evaluation:
+  report: [mechanistic_arm]
+  mechanistic:
+    assays: [transwell_endothelial_flux, transcript_readout]
+    replicates: 6
+    vehicle_control: true
+    scrambled_sequence_control: true
+    reported_statistic: rank_direction
+    subset_molecules: 15

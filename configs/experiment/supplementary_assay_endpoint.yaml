@@ -1,0 +1,13 @@
+name: supplementary_assay_endpoint
+description: Section 2.4, the molecular branch on assay endpoints and the reverse ranking
+extends: [configs/experiment/main.yaml]
+supplementary:
+  section: assay_endpoint
+evaluation:
+  report: [assay_endpoint]
+  assay:
+    endpoints: [caco2_wang, ochem_caco2_ood]
+    families: [descriptor_gradient_boosting, graph_transformer, state_space, equivariant_geometry]
+    metric: mean_absolute_error
+    comparator: admet_ai
+    cardiotoxicity_endpoint: admet_benchmark

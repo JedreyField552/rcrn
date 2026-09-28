@@ -1,0 +1,631 @@
+{
+  "category_counts": {
+    "closed_form": {
+      "PASS": 13
+    },
+    "configuration": {
+      "PASS": 3
+    },
+    "dataset": {
+      "NOT_RUN": 1,
+      "PASS": 1
+    },
+    "environment": {
+      "BLOCKED": 1,
+      "NOT_RUN": 3
+    },
+    "execution": {
+      "PASS": 9
+    },
+    "hygiene": {
+      "PASS": 5
+    },
+    "manuscript": {
+      "FAIL": 5,
+      "PASS": 35
+    },
+    "mapping": {
+      "PASS": 1
+    },
+    "tools": {
+      "PASS": 5
+    }
+  },
+  "checks": [
+    {
+      "category": "mapping",
+      "detail": {
+        "unresolved": []
+      },
+      "evidence": "17 claims mapped, 0 unresolved code paths",
+      "name": "paper_claim_mapping",
+      "status": "PASS"
+    },
+    {
+      "category": "configuration",
+      "detail": {
+        "failures": []
+      },
+      "evidence": "29 of 29 experiment configurations resolved",
+      "name": "experiment_configs_load",
+      "status": "PASS"
+    },
+    {
+      "category": "configuration",
+      "detail": {
+        "absent": []
+      },
+      "evidence": "13 of 13 required entries present",
+      "name": "main_configuration_complete",
+      "status": "PASS"
+    },
+    {
+      "category": "configuration",
+      "detail": {
+        "collisions": []
+      },
+      "evidence": "scanned 35 configuration files",
+      "name": "configs_exclude_reported_result_values",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "detail": {
+        "candidates": 6,
+        "external": 8,
+        "fit": 12,
+        "records": 24,
+        "validation": 4
+      },
+      "evidence": "cohort layer 'fixture' read 24 records over 6 candidates",
+      "name": "data_reading",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "evidence": "assembled volume carries 4 channels against 4 declared",
+      "name": "volume_channel_contract",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "detail": {
+        "mismatched": []
+      },
+      "evidence": "4 of 4 hand-counted structures match; feature widths 45 and 12",
+      "name": "molecular_graph_contract",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "evidence": "pair score (4, 6) against the expected (4, 6); susceptibility (6, 3)",
+      "name": "forward_pass",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "evidence": "total 1.546593, rank 0.498537, property 1.265459, consistency 1.866591",
+      "name": "loss_terms_finite",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "evidence": "parameter L2 moved from 55.974289 to 56.230587 after one update over 24 plaque records",
+      "name": "backward_and_parameter_update",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "evidence": "parameter digest stable yes; seed restored as 20260922",
+      "name": "checkpoint_round_trip",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "evidence": "2 minibatch updates executed on the smoke configuration; final loss 1.302985",
+      "name": "minimal_training_loop",
+      "status": "PASS"
+    },
+    {
+      "category": "execution",
+      "detail": {
+        "first": 1.5650241374969482,
+        "last": 0.912858784198761
+      },
+      "evidence": "loss on one fixed batch moved from 1.565024 to 0.912859 over 30 updates",
+      "name": "single_batch_overfit",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "rank-difference formula -0.167832167832, independent library -0.167832167832, implementation -0.167832167832",
+      "name": "spearman_matches_independent_references",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "brute force 0.272727272727, concordance route 0.272727272727, implementation 0.272727272727",
+      "name": "kendall_matches_brute_force",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "hand value 0.609089917258 against implementation 0.609089917258",
+      "name": "ndcg_matches_hand_computation",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "enumeration 0.6374324560 against implementation 0.6374324560",
+      "name": "rank_loss_matches_pair_enumeration",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "shrunk covariance matches the closed form yes; Eq. (2) matches on 4 records yes",
+      "name": "gate_statistic_matches_closed_form",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "margin 0.600000, radius 0.233005, certified True, deferred 0, max molecule radius 2.330051",
+      "name": "certificate_matches_algorithm",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "Holm step-down matches; Benjamini-Hochberg matches",
+      "name": "multiplicity_matches_definitions",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "pairwise count 0.000000000000",
+      "name": "auc_matches_pairwise_count",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "recovered 1.3515 against a known 1.35 on 6000 draws",
+      "name": "calibration_slope_recovers_known_value",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "closed-form ridge solution compared against the normal equations solved independently",
+      "name": "ridge_matches_normal_equations",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "formula 0.979244759082 against implementation 0.979244759082",
+      "name": "schedule_factor_matches_formula",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "noise variance across the volume ladder [0.6155620217323303, 0.30778101086616516, 0.153889998793602, 0.076944999396801]",
+      "name": "noise_term_grows_as_the_plaque_shrinks",
+      "status": "PASS"
+    },
+    {
+      "category": "closed_form",
+      "evidence": "total 293961 parameters; molecular branch 126538, imaging branch 167381, coupling 42",
+      "name": "parameter_attribution_bounds",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "arms 1142+3176=4318, sites=4318, regions=4318, reported total 4318",
+      "name": "cohort_partitions_sum",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "2486+649=3135 against Region I 3135",
+      "name": "fit_and_validation_recover_region_one",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 0.6921 against reported 0.6900 (tolerance 0.005)",
+      "name": "arm_weighted_pool_rho",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 0.0706 against reported 0.0710 (tolerance 0.001)",
+      "name": "arm_weighted_pool_increment",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 0.0292 against reported 0.0290 (tolerance 0.001)",
+      "name": "arm_weighted_pool_net_benefit",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 73.9008 against reported 73.9000 (tolerance 0.05)",
+      "name": "arm_weighted_pool_mcid_crossing",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 1.0332 against reported 1.0400 (tolerance 0.005)",
+      "name": "arm_weighted_pool_calibration_slope",
+      "status": "FAIL"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 0.6918 against reported 0.6900 (tolerance 0.005)",
+      "name": "region_weighted_pool_rho",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 0.0690 against reported 0.0710 (tolerance 0.001)",
+      "name": "region_weighted_pool_increment",
+      "status": "FAIL"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 0.0286 against reported 0.0290 (tolerance 0.001)",
+      "name": "region_weighted_pool_net_benefit",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 73.3206 against reported 73.9000 (tolerance 0.05)",
+      "name": "region_weighted_pool_mcid_crossing",
+      "status": "FAIL"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "recomputed 1.0537 against reported 1.0400 (tolerance 0.005)",
+      "name": "region_weighted_pool_calibration_slope",
+      "status": "FAIL"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "94.3+5.7=100.0",
+      "name": "gate_shares_complement",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "removed share 2.52% against the printed 2.5%",
+      "name": "coupling_parameter_share_matches",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "reported 0.973 inside the band [0.9568, 0.9854] from 0.67 against 0.69",
+      "name": "retained_margin_share_reachable",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "4 conditions exceed 5.0 points",
+      "name": "transport_moderate_count",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "largest loss is small_plaque_below_40mm3 at -8.2 points",
+      "name": "transport_largest_loss",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "ordering is ['descriptor_family', 'graph_family', 'state_space', 'equivariant_family']",
+      "name": "assay_family_ordering",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "descriptor 0.2571 against state space 0.2655, gap 0.0084",
+      "name": "caco2_margin_approximates_one_hundredth",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "floor 0.05 against headroom 0.39 over the strongest baseline",
+      "name": "rank_floor_reachable",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "column difference 0.080 inside the reported interval (0.07, 0.1)",
+      "name": "reported_increment_matches_columns",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "share rises from 21.4% to 54.6%",
+      "name": "route_share_range_ordered",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "agreement falls from 0.87 to 0.61",
+      "name": "quartile_agreement_falls",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "slope 1.28 to 1.04; gated and ungated both at 0.69",
+      "name": "gate_calibration_improves",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "retrospective 0.073 at the reference 0.07, prospective 0.064 below it",
+      "name": "reference_level_below_increment",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "unconstrained covariance carries a loss of -0.01 at 151.6 M parameters",
+      "name": "tier3_substitution_ordering",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "molecular-only 48.6 M, imaging-only 90.1 M, shared residual 12.0 M against a coupling cost of 3.8 M",
+      "name": "parameter_attribution_bounds",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "reported 1.39 inside the rounding band [1.227, 1.611]",
+      "name": "interaction_ratio_reachable_coupling_and_gate",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "reported 1.43 inside the rounding band [1.292, 1.650]",
+      "name": "interaction_ratio_reachable_route_and_composition",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "reported 1.27 inside the rounding band [1.206, 1.433]",
+      "name": "interaction_ratio_reachable_coupling_and_composition",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "reported 1.1 inside the rounding band [0.944, 1.357]",
+      "name": "interaction_ratio_reachable_route_and_rank",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "metric difference -0.100 against printed delta -0.100",
+      "name": "ablation_delta_without_reaction_norm_coupling",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "metric difference -0.050 against printed delta -0.050",
+      "name": "ablation_delta_without_regime_route_head",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "metric difference -0.060 against printed delta -0.060",
+      "name": "ablation_delta_without_plaque_composition_head",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "metric difference +0.000 against printed delta +0.000",
+      "name": "ablation_delta_without_interaction_variance_gate",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "metric difference -0.030 against printed delta -0.030",
+      "name": "ablation_delta_without_agreement_weighted_rank",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "metric difference +0.000 against printed delta -0.010",
+      "name": "ablation_delta_without_certified_topk_head",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "metric difference -0.100 against printed delta -0.110",
+      "name": "ablation_delta_without_plaque_imaging_branch",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "evidence": "metric difference -0.080 against printed delta -0.080",
+      "name": "ablation_delta_without_molecular_branch",
+      "status": "PASS"
+    },
+    {
+      "category": "manuscript",
+      "detail": {
+        "failing": [
+          "arm_weighted_pool_calibration_slope",
+          "region_weighted_pool_increment",
+          "region_weighted_pool_mcid_crossing",
+          "region_weighted_pool_calibration_slope"
+        ]
+      },
+      "evidence": "35 of 39 arithmetic relations hold; a failure here is a discrepancy inside the article's own tables, not a code defect",
+      "name": "manuscript_family_summary",
+      "status": "FAIL"
+    },
+    {
+      "category": "dataset",
+      "evidence": "11 access links recorded with their terms",
+      "name": "dataset_links_listed",
+      "status": "PASS"
+    },
+    {
+      "category": "dataset",
+      "detail": {
+        "links": 11,
+        "probed_live": false
+      },
+      "evidence": "the live probe is opt-in; the default pass reads the shipped link list and opens no socket so the report stays a fixed point",
+      "name": "dataset_link_reachability",
+      "status": "NOT_RUN"
+    },
+    {
+      "category": "hygiene",
+      "detail": {
+        "hits": []
+      },
+      "evidence": "scanned 151 shipped files for the banned stems",
+      "name": "vocabulary_sweep",
+      "status": "PASS"
+    },
+    {
+      "category": "hygiene",
+      "detail": {
+        "hits": []
+      },
+      "evidence": "scanned 151 files for addresses, host paths, keys and identifiers",
+      "name": "privacy_sweep",
+      "status": "PASS"
+    },
+    {
+      "category": "hygiene",
+      "detail": {
+        "extra": []
+      },
+      "evidence": "0 markdown files beyond README.md",
+      "name": "markdown_inventory",
+      "status": "PASS"
+    },
+    {
+      "category": "hygiene",
+      "detail": {
+        "files": []
+      },
+      "evidence": "0 continuous-integration files present",
+      "name": "continuous_integration_removed",
+      "status": "PASS"
+    },
+    {
+      "category": "hygiene",
+      "detail": {
+        "missing": [],
+        "stale": [],
+        "unlisted": []
+      },
+      "evidence": "missing 0, unlisted 0, stale 0 outside the four artefacts this run rewrites",
+      "name": "manifest_matches_tree",
+      "status": "PASS"
+    },
+    {
+      "category": "tools",
+      "detail": {
+        "exit_code": 0
+      },
+      "evidence": "ruff exited with code 0",
+      "name": "tool_ruff",
+      "status": "PASS"
+    },
+    {
+      "category": "tools",
+      "detail": {
+        "exit_code": 0
+      },
+      "evidence": "black exited with code 0",
+      "name": "tool_black",
+      "status": "PASS"
+    },
+    {
+      "category": "tools",
+      "detail": {
+        "exit_code": 0
+      },
+      "evidence": "isort exited with code 0",
+      "name": "tool_isort",
+      "status": "PASS"
+    },
+    {
+      "category": "tools",
+      "detail": {
+        "exit_code": 0
+      },
+      "evidence": "mypy exited with code 0",
+      "name": "tool_mypy",
+      "status": "PASS"
+    },
+    {
+      "category": "tools",
+      "detail": {
+        "exit_code": 0
+      },
+      "evidence": "pytest exited with code 0",
+      "name": "tool_pytest",
+      "status": "PASS"
+    },
+    {
+      "category": "environment",
+      "evidence": "no container runtime is available in the validation environment",
+      "name": "container_build",
+      "status": "BLOCKED"
+    },
+    {
+      "category": "environment",
+      "evidence": "no accelerator is available; every executed check ran on the host CPU",
+      "name": "accelerator_run",
+      "status": "NOT_RUN"
+    },
+    {
+      "category": "environment",
+      "evidence": "the multi-centre cohort is private and obtainable only under a data-use statement; every cohort-level value in Tables 1-4 carries this status",
+      "name": "private_cohort_ingest",
+      "status": "NOT_RUN"
+    },
+    {
+      "category": "environment",
+      "evidence": "no assay release table is staged; the reader and its grouped split are exercised on a table fixture inside the test suite",
+      "name": "public_assay_release_ingest",
+      "status": "NOT_RUN"
+    }
+  ],
+  "code_status": "PARTIALLY_VERIFIED",
+  "integrity_manifest_written": true,
+  "interpretation": "a discrepancy inside the manuscript's own tables is not a defect in the release; the code verdict is reported separately from the manuscript family",
+  "manuscript_discrepancies": [
+    {
+      "evidence": "recomputed 1.0332 against reported 1.0400 (tolerance 0.005)",
+      "name": "arm_weighted_pool_calibration_slope"
+    },
+    {
+      "evidence": "recomputed 0.0690 against reported 0.0710 (tolerance 0.001)",
+      "name": "region_weighted_pool_increment"
+    },
+    {
+      "evidence": "recomputed 73.3206 against reported 73.9000 (tolerance 0.05)",
+      "name": "region_weighted_pool_mcid_crossing"
+    },
+    {
+      "evidence": "recomputed 1.0537 against reported 1.0400 (tolerance 0.005)",
+      "name": "region_weighted_pool_calibration_slope"
+    },
+    {
+      "evidence": "35 of 39 arithmetic relations hold; a failure here is a discrepancy inside the article's own tables, not a code defect",
+      "name": "manuscript_family_summary"
+    }
+  ],
+  "overall_status": "PARTIALLY_VERIFIED",
+  "scope": "paper-claim mapping, closed-form recomputation, fixture-scale execution of the full pipeline, and the article's own table arithmetic",
+  "status_counts": {
+    "BLOCKED": 1,
+    "FAIL": 5,
+    "NOT_RUN": 4,
+    "PASS": 72
+  }
+}
